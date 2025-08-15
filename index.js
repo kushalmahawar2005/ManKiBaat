@@ -18,23 +18,23 @@ let posts = [
     {
         id: uuidv4(),
         username: "Anki",
-        content: "I love Coding"
+        content: "Meri Pyarii Behen , Padoshh 😁, Bass Jada Nahi Bolunga kuki Bolene ke liye Bohot kuch hai lekin itenaa hii bahot hai..!!"
     },
     {
 
         id: uuidv4(),
         username: "Vinay_mahawar",
-        content: "I love My Business"
+        content: "Meraa Bhaii..! Kahane Ko shabd nahi hai lekin Bhagwan karee mujhee har janam apke jaise bhai mileee , Jo hemaree liye itena sab kuch socheta hai Itena sab kuch Kareta hai , Sabka Dhyan Rakheta hai , Bhagwan mere bhai ke sare Sapne puree karena 🤗"
     },
     {
         id: uuidv4(),
         username: "Harshit",
-        content: "He also Love to do bussiness"
+        content: "Mera Pyaraaa Foruu, Sabse pyaraa mera chota bhai ❤, Bechara koi dost Nahi hai iseka but Ham hai na,Thoda Gussa Kareta hai But Man Dil Ka Bahot Acha, Sabka bahot Dyan Rakhta hai ..!"
     },
     {
         id: uuidv4(),
         username: "Gagan_Mahawar",
-        content: "He love to talk to Girls and He reallys Loves our Family"
+        content: "Ghar Ka Dakuu Or Sabseee Sherartii Bachaaaaa....!!! Kaam karne me jhorr ataa hai iseko lekin haan kar letaa hai , Dono mumma ka ladla , Papa ka ladela , Gnagyaaa Sala 😅"
     },
 ]
 
@@ -57,7 +57,7 @@ app.post('/posts', (req, res) => {   //Post is used To add new things or add new
 
 app.get('/posts/:id', (req, res) => {
     let { id } = req.params;
-    let post = posts.find((p) => id === p.id); 
+    let post = posts.find((p) => id === p.id);
     console.log(post);
     res.render("Show.ejs", { post });
 });
@@ -83,7 +83,7 @@ app.delete("/posts/:id", (req, res) => {
     posts = posts.filter((p) => id !== p.id);
     res.redirect("/posts");
 })
- 
+
 
 app.listen(port, () => {
     console.log("Listining to port 8080");
