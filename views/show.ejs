@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="show">
+        <h2>Here is your post in detail</h2>
+
+        <div class="post1">
+            <p class="user"> Post Username : @<%= post.username %>
+            </p>
+            <p class="content">Post Content : <%= post.content %>
+            </p>
+        </div>
+        <div class="ancher">
+         <a href="http://localhost:8080/posts">Home</a>
+        <a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit</a>
+        </div>
+    </div>
+</body>
+
+</html>
