@@ -14,29 +14,16 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-let posts = [
-    {
-        id: uuidv4(),
-        username: "Anki",
-        content: "Meri Pyarii Behen , Padoshh 😁, Bass Jada Nahi Bolunga kuki Bolene ke liye Bohot kuch hai lekin itenaa hii bahot hai..!!"
-    },
-    {
 
-        id: uuidv4(),
-        username: "Vinay_mahawar",
-        content: "Meraa Bhaii..! Kahane Ko shabd nahi hai lekin Bhagwan karee mujhee har janam apke jaise bhai mileee , Jo hemaree liye itena sab kuch socheta hai Itena sab kuch Kareta hai , Sabka Dhyan Rakheta hai , Bhagwan mere bhai ke sare Sapne puree karena 🤗"
-    },
-    {
-        id: uuidv4(),
-        username: "Harshit",
-        content: "Mera Pyaraaa Foruu, Sabse pyaraa mera chota bhai ❤, Bechara koi dost Nahi hai iseka but Ham hai na,Thoda Gussa Kareta hai But Man Dil Ka Bahot Acha, Sabka bahot Dyan Rakhta hai ..!"
-    },
-    {
-        id: uuidv4(),
-        username: "Gagan_Mahawar",
-        content: "Ghar Ka Dakuu Or Sabseee Sherartii Bachaaaaa....!!! Kaam karne me jhorr ataa hai iseko lekin haan kar letaa hai , Dono mumma ka ladla , Papa ka ladela , Gnagyaaa Sala 😅"
-    },
-]
+function loadPosts() {
+    if (!fs.existsSync(dataFile)) return [];
+    let data = fs.readFileSync(dataFile, "utf-8");
+    return JSON.parse(data);
+}
+
+function savePosts(posts) {
+    fs.writeFileSync(dataFile, JSON.stringify(posts, null, 2));
+}
 
 
 app.get('/posts', (req, res) => {
